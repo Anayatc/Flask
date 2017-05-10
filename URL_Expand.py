@@ -1,4 +1,5 @@
 import requests
+from urllib.parse import urlparse
 
 url = 'http://amzn.to/2pfDiJE'
 
@@ -12,6 +13,10 @@ def url_resolve(url):
 
 def look_up():
     final_dest = url_resolve(url)
+    parsed_uri = urlparse(final_dest)
+    domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+    return domain
+
 
 print(url_resolve('http://amzn.to/2pfDiJE'))
 print(url_resolve('https://goo.gl/Oha1fI'))
