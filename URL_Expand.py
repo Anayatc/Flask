@@ -11,7 +11,8 @@ def url_resolve(url):
     return resp.url
 
 
-def look_up():
+# takes the expanded url from url_resolve and returns just the domain name.
+def domain_name():
     final_dest = url_resolve(url)
     parsed_uri = urlparse(final_dest)
     domain = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
@@ -21,4 +22,4 @@ def look_up():
 print(url_resolve('http://amzn.to/2pfDiJE'))
 print(url_resolve('https://goo.gl/Oha1fI'))
 print(url_resolve('http://ow.ly/nFlK30byASt'))
-print(look_up())
+print(domain_name())
