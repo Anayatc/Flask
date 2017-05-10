@@ -2,12 +2,13 @@ import requests
 from urllib.parse import urlparse
 
 url = 'http://amzn.to/2pfDiJE'
+print(url)
 
 
 # takes url as input and returns full url if url has been shortened.
-def url_resolve(url):
+def url_resolve(short_url):
     session = requests.Session()
-    resp = session.head(url, allow_redirects=True)
+    resp = session.head(short_url, allow_redirects=True)
     return resp.url
 
 
@@ -19,7 +20,11 @@ def domain_name():
     return domain
 
 
-print(url_resolve('http://amzn.to/2pfDiJE'))
-print(url_resolve('https://goo.gl/Oha1fI'))
-print(url_resolve('http://ow.ly/nFlK30byASt'))
+def who_is():
+    domain = domain_name()
+
+
+print(url_resolve(url))
+
 print(domain_name())
+print(who_is())
